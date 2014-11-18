@@ -31,6 +31,8 @@ body {
       transition: all .6s ease; }
       .topbar .user-controls button:hover {
         color: #f7ca18; }
+      .topbar .user-controls button:focus {
+        outline: none; }
 
 .navibar {
   overflow-y: auto;
