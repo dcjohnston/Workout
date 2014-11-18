@@ -53,6 +53,7 @@ body {
       outline: none; }
 
 .navibar {
+  direction: rtl;
   overflow-y: auto;
   overflow-x: hidden;
   margin: 0;
@@ -64,6 +65,8 @@ body {
   position: fixed;
   height: 100%;
   z-index: 1000; }
+  .navibar * {
+    direction: ltr; }
   .navibar.show {
     transform: translate3d(0, 0, 0); }
   .navibar .glyphicon-heart, .navibar .glyphicon-heart-empty {
