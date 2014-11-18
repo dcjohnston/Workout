@@ -107,7 +107,7 @@ body {
   0% {
     opacity: 0; }
   100% {
-    opacity: .3; } }
+    opacity: .5; } }
 @-webkit-keyframes heart-beat {
   0% {
     -webkit-transform: scale(1); }
