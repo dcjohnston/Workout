@@ -13,14 +13,24 @@ body {
   height: 55px;
   background-color: rgba(255, 255, 255, 0.5);
   font-size: 2em;
-  width: 100%; }
+  width: 100%;
+  color: #22313f; }
   .topbar .glyphicon {
     padding-top: 13px;
     padding-left: 9%;
-    cursor: pointer; }
-  .topbar .slogan {
-    color: #f7ca18;
+    cursor: pointer;
+    transition: color .6s ease; }
+    .topbar .glyphicon:hover {
+      color: #f7ca18; }
+  .topbar .user-controls {
     padding-left: 49%; }
+    .topbar .user-controls button {
+      color: #22313f;
+      background: none;
+      border: none;
+      transition: all .6s ease; }
+      .topbar .user-controls button:hover {
+        color: #f7ca18; }
 
 .navibar {
   overflow-y: auto;
