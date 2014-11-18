@@ -103,11 +103,36 @@ body {
     -webkit-animation: fade-over 1s 1;
     -webkit-animation-fill-mode: forwards; }
 
+.infobar {
+  border-right: 1px solid rgba(255, 255, 255, 0.5); }
+  .infobar div {
+    font-size: 4em;
+    color: #f7ca18;
+    margin-bottom: 10%; }
+  .infobar div:first-child {
+    margin-top: 75%; }
+
+.logo {
+  font-size: 7em;
+  text-align: center;
+  color: #f7ca18; }
+
+.secondary-slogan {
+  text-align: cetner;
+  color: #f7ca18;
+  font-size: 3em;
+  margin-top: 10%; }
+
+.logo-image {
+  position: relative;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0); }
+
 @-webkit-keyframes fade-over {
   0% {
     opacity: 0; }
   100% {
-    opacity: .5; } }
+    opacity: .7; } }
 @-webkit-keyframes heart-beat {
   0% {
     -webkit-transform: scale(1); }
