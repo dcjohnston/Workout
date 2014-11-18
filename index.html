@@ -11,62 +11,64 @@
     <link href="/frontend/styles.css" rel="stylesheet"/>
     <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   </head>
-  <body ng-app="app" ng-controller="MainCtrl as main" ng-class="{show: main.displayNavbar}">
-    <div class="view-container" ng-class="{show: main.displayNavbar}">
-      <div class="navbar" ng-controller="NavbarCtrl as nav">
-        <div class="header">Exercises<span class="glyphicon glyphicon-minus"  ng-click="nav.toggleSubmenu('displayExercise')"></span></div>
-        <ul ul-toggler ng-class="{hide_sub: nav.displayExercise}">
-          <li><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-            Create
-            <div class="underline-decorator">
-            </div>
-          </li>
-          <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-            Find
-            <div class="underline-decorator">
-            </div>
-          </li>
-          <li><span class="glyphicon glyphicon-heart-empty"></span>
-            My Exercises
-            <div class="underline-decorator">
-              </div>
-          </li>
-        </ul>
-        <div class="header">Workouts  <span class="glyphicon glyphicon-minus"></span></div>
-        <ul>
-          <li><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-            Create
-            <div class="underline-decorator">
-            </div>
-          </li>
-          <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-            Find
-            <div class="underline-decorator">
-            </div>
-          </li>
-          <li><span class="glyphicon glyphicon-heart"></span>
-            My Workouts
-            <div class="underline-decorator">
-            </div>
-          </li>
-        </ul>
-        <div class="header">Profile  <span class="glyphicon glyphicon-minus"></span></div>
-        <ul>
-          <li><span class="glyphicon glyphicon-user"></span>
-            My Profile
-            <div class="underline-decorator">
-            </div>
-          </li>
-        </ul>
+  <body ng-app="app" ng-controller="MainCtrl as main">
+    <div class="navibar" ng-controller="NavbarCtrl as nav" ng-class="{show: main.displayNavbar}">
+      <div class="header">Exercises<span class="glyphicon glyphicon-minus"  ng-click="nav.toggleSubmenu('displayExercise')"></span></div>
+      <ul ul-toggler ng-class="{hide_sub: nav.displayExercise}">
+        <li><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          Create
+          <div class="underline-decorator">
+          </div>
+        </li>
+        <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          Find
+          <div class="underline-decorator">
+          </div>
+        </li>
+        <li><span class="glyphicon glyphicon-heart-empty"></span>
+          My Exercises
+          <div class="underline-decorator">
+          </div>
+        </li>
+      </ul>
+      <div class="header">Workouts  <span class="glyphicon glyphicon-minus"></span></div>
+      <ul>
+        <li><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          Create
+          <div class="underline-decorator">
+          </div>
+        </li>
+        <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          Find
+          <div class="underline-decorator">
+          </div>
+        </li>
+        <li><span class="glyphicon glyphicon-heart"></span>
+          My Workouts
+          <div class="underline-decorator">
+          </div>
+        </li>
+      </ul>
+      <div class="header">Profile  <span class="glyphicon glyphicon-minus"></span></div>
+      <ul>
+        <li><span class="glyphicon glyphicon-user"></span>
+          My Profile
+          <div class="underline-decorator">
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="main-content" ng-class="{show: main.displayNavbar}">
+      <div class="shroud" ng-click="main.toggleNavbar()" ng-class="{show: main.displayNavbar}">
       </div>
       <div class="topbar">
         <span class="glyphicon glyphicon-align-justify" ng-click="main.toggleNavbar()"></span>
-      <span class="slogan">
-        Plan | Train | Analyze | Repeat
-      </span>
+        <span class="slogan">
+          Plan | Train | Analyze | Repeat
+        </span>
       </div>
-      <!-- other app view goes here -->
     </div>
+    <!-- other app view goes here -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

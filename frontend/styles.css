@@ -1,19 +1,13 @@
+* {
+  box-sizing: border-box; }
+
 body, html {
-  height: 100%;
-  width: 100%;
   background-color: #22313f;
-  font-family: 'Arvo', sans-serif; }
+  font-family: 'Arvo', sans-serif;
+  height: 100%; }
 
 body {
   overflow-x: hidden; }
-
-.view-container {
-  width: 118%;
-  position: relative;
-  left: -18%;
-  -webkit-transition: left .8s ease; }
-  .view-container.show {
-    left: 0%; }
 
 .topbar {
   height: 55px;
@@ -22,55 +16,80 @@ body {
   width: 100%; }
   .topbar .glyphicon {
     padding-top: 13px;
-    padding-left: 18%;
+    padding-left: 9%;
     cursor: pointer; }
   .topbar .slogan {
     color: #f7ca18;
-    padding-left: 45%; }
+    padding-left: 49%; }
 
-.navbar {
+.navibar {
   margin: 0;
   background-color: #f7ca18;
-  height: 100%;
-  width: 18%;
-  min-width: 100px;
+  width: 17%;
+  border: none;
+  transition: transform .6s ease;
+  transform: translate3d(-100%, 0, 0);
   position: fixed;
-  border: none; }
-  .navbar .header {
+  height: 100%; }
+  .navibar.show {
+    transform: translate3d(0, 0, 0); }
+  .navibar .header {
     margin-left: 5%;
     color: #22313f;
     font-size: 2.4em;
     position: relative;
     margin-bottom: 15%; }
-    .navbar .header:first-child {
+    .navibar .header:first-child {
       margin-top: 5%; }
-    .navbar .header .glyphicon {
+    .navibar .header .glyphicon {
       font-size: .8em;
       position: absolute;
       right: 8%;
       top: 21%;
       cursor: pointer; }
-  .navbar .list-wrapper {
+  .navibar .list-wrapper {
     overflow: hidden; }
-    .navbar .list-wrapper ul {
+    .navibar .list-wrapper ul {
       top: 0px;
       position: relative;
       -webkit-transition: top .6s linear; }
-      .navbar .list-wrapper ul.hide_sub {
+      .navibar .list-wrapper ul.hide_sub {
         top: -300px; }
-  .navbar li {
+  .navibar li {
     list-style: none;
     margin-bottom: 15%;
     font-size: 1.8em;
     cursor: pointer;
     position: relative; }
-    .navbar li span {
+    .navibar li span {
       margin-right: 8%; }
-    .navbar li .underline-decorator {
+    .navibar li .underline-decorator {
       width: 0%;
       border-bottom: 4px solid #22313f;
       -webkit-transition: width 1s ease .15s; }
-    .navbar li:hover .underline-decorator {
+    .navibar li:hover .underline-decorator {
       width: 102%; }
+
+.main-content {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  transition: transform .6s ease; }
+  .main-content.show {
+    transform: translate3d(17%, 0, 0); }
+
+.shroud {
+  height: 100%;
+  width: 100%;
+  visibility: hidden;
+  z-index: 1000;
+  position: absolute;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 2s;
+  cursor: pointer; }
+  .shroud.show {
+    visibility: visible;
+    opacity: .3; }
 
 /*# sourceMappingURL=styles.css.map */
