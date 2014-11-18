@@ -10,41 +10,39 @@ body {
   overflow-x: hidden; }
 
 .topbar {
-  height: 55px;
+  height: auto;
   background-color: rgba(255, 255, 255, 0.5);
   font-size: 2em;
   width: 100%;
   color: #22313f; }
   .topbar .glyphicon {
-    padding-top: 13px;
-    padding-left: 9%;
+    padding-top: 5px;
     cursor: pointer;
     transition: color .6s ease; }
     .topbar .glyphicon:hover {
       color: #f7ca18; }
-  .topbar .user-controls {
-    padding-left: 49%; }
-    .topbar .user-controls button {
-      color: #22313f;
-      background: none;
-      border: none;
-      transition: all .6s ease; }
-      .topbar .user-controls button:hover {
-        color: #f7ca18; }
-      .topbar .user-controls button:focus {
-        outline: none; }
+  .topbar .user-controls button {
+    color: #22313f;
+    background: none;
+    border: none;
+    transition: all .6s ease; }
+    .topbar .user-controls button:hover {
+      color: #f7ca18; }
+    .topbar .user-controls button:focus {
+      outline: none; }
 
 .navibar {
   overflow-y: auto;
   overflow-x: hidden;
   margin: 0;
   background-color: #f7ca18;
-  width: 300px;
+  width: 320px;
   border: none;
   transition: transform .6s ease;
   transform: translate3d(-100%, 0, 0);
   position: fixed;
-  height: 100%; }
+  height: 100%;
+  z-index: 1000; }
   .navibar.show {
     transform: translate3d(0, 0, 0); }
   .navibar .glyphicon-heart, .navibar .glyphicon-heart-empty {
@@ -99,7 +97,7 @@ body {
   height: 100%;
   transition: transform .6s ease; }
   .main-content.show {
-    transform: translate3d(300px, 0, 0); }
+    transform: translate3d(320px, 0, 0); }
 
 .shroud {
   height: 100%;
@@ -138,7 +136,8 @@ body {
 .logo-image {
   position: relative;
   left: 50%;
-  transform: translate3d(-50%, 0, 0); }
+  transform: translate3d(-50%, 0, 0);
+  z-index: 500; }
 
 @-webkit-keyframes fade-over {
   0% {
