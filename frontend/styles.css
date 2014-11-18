@@ -23,6 +23,8 @@ body {
     padding-left: 49%; }
 
 .navibar {
+  overflow-y: auto;
+  overflow-x: hidden;
   margin: 0;
   background-color: #f7ca18;
   width: 17%;
@@ -94,8 +96,10 @@ body {
   position: absolute;
   background-color: black;
   cursor: pointer;
-  opacity: 0; }
+  opacity: 0;
+  visibility: hidden; }
   .shroud.show {
+    visibility: visible;
     -webkit-animation: fade-over 1s 1;
     -webkit-animation-fill-mode: forwards; }
 
