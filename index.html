@@ -12,7 +12,7 @@
     <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="/frontend/img/favicon.png" />
   </head>
-  <body ng-app="app" ng-controller="MainCtrl as main">
+  <body class="preload" ng-app="app" ng-controller="MainCtrl as main">
     <div class="navibar" ng-controller="NavbarCtrl as nav" ng-class="{show: main.displayNavbar}">
       <div class="header">Exercises<span class="glyphicon glyphicon-minus"  ng-click="nav.toggleSubmenu('displayExercise')"></span></div>
       <ul ul-toggler ng-class="{hide_sub: nav.displayExercise}">
@@ -59,6 +59,8 @@
         </li>
       </ul>
     </div>
+    <modal class="modal" ng-class="{show: main.displayModal}" ng-click="main.toggleModal()">
+    </modal>
     <div class="main-content" ng-class="{show: main.displayNavbar}">
       <div class="shroud" ng-click="main.toggleNavbar()" ng-class="{show: main.displayNavbar}">
       </div>
@@ -69,7 +71,7 @@
           </div>
           <div class="col-lg-offset-6 col-lg-4 col-sm-6 col-sm-offset-4 col-xs-12">
             <span class="user-controls"> 
-              <button>Login </button> | <button> Signup </button> | <button> About </button>
+              <button ng-click="main.toggleModal()">Login </button> | <button> Signup </button> | <button> About </button>
             </span>
           </div>
         </div>
