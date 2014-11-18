@@ -25,6 +25,7 @@ body {
     color: #22313f;
     background: none;
     border: none;
+    padding: 0;
     transition: all .6s ease; }
     .topbar .user-controls button:hover {
       color: #f7ca18; }
