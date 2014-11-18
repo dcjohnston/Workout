@@ -20,6 +20,8 @@ body {
     padding-left: 9%;
     cursor: pointer;
     transition: color .6s ease; }
+    .topbar .glyphicon:hover {
+      color: #f7ca18; }
   .topbar .user-controls {
     padding-left: 49%; }
     .topbar .user-controls button {
