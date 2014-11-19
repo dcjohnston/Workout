@@ -12,7 +12,7 @@
     <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="/frontend/img/favicon.png" />
   </head>
-  <body class="preload" ng-app="app" ng-controller="MainCtrl as main">
+  <body ng-app="app" ng-controller="MainCtrl as main">
     <div class="navibar" ng-controller="NavbarCtrl as nav" ng-class="{show: main.displayNavbar}">
       <div class="header">Exercises<span class="glyphicon glyphicon-minus"  ng-click="nav.toggleSubmenu('displayExercise')"></span></div>
       <ul ul-toggler ng-class="{hide_sub: nav.displayExercise}">
@@ -59,10 +59,10 @@
         </li>
       </ul>
     </div>
-    <modal class="modal" ng-class="{show: main.displayModal}" ng-click="main.toggleModal()">
+    <modal class="my-modal" ng-show="main.displayModal" ng-click="main.toggleModal()">
     </modal>
     <div class="main-content" ng-class="{show: main.displayNavbar}">
-      <div class="shroud" ng-click="main.toggleNavbar()" ng-class="{show: main.displayNavbar}">
+      <div class="shroud" ng-click="main.toggleNavbar()" ng-show="main.displayNavbar">
       </div>
       <div class="topbar">
         <div class="container-fluid">
@@ -106,8 +106,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/frontend/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js">
-    </script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
     <script src="/frontend/app.js"></script>
   </body>
 </html>
