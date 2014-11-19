@@ -59,7 +59,7 @@
         </li>
       </ul>
     </div>
-    <modal class="my-modal" ng-show="main.displayModal" ng-click="main.toggleModal()">
+    <modal show-condition="main.displayModal" content-url="main.templateUrl">
     </modal>
     <div class="main-content" ng-class="{show: main.displayNavbar}">
       <div class="shroud" ng-click="main.toggleNavbar()" ng-show="main.displayNavbar">
