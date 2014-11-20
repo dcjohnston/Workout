@@ -68,14 +68,10 @@ body {
   width: 300px;
   border: none;
   transition: transform .6s ease;
-  transform: translate3d(-100%, 0, 0);
-  position: fixed;
-  height: 100%;
-  z-index: 1000; }
+  position: absolute;
+  height: 100%; }
   .navibar * {
     direction: ltr; }
-  .navibar.show {
-    transform: translate3d(0, 0, 0); }
   .navibar .glyphicon-heart, .navibar .glyphicon-heart-empty {
     position: absolute;
     margin-right: 0%; }
@@ -123,9 +119,13 @@ body {
       -webkit-animation: heart-beat 1s infinite; }
 
 .main-content {
+  background-color: #22313f;
   display: inline-block;
   width: 100%;
   height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   transition: transform .6s ease; }
   .main-content.show {
     transform: translate3d(300px, 0, 0); }
@@ -170,7 +170,7 @@ body {
   position: relative;
   left: 50%;
   transform: translate3d(-50%, 0, 0);
-  z-index: 500; }
+  max-width: 100%; }
 
 @-webkit-keyframes fade-over {
   0% {

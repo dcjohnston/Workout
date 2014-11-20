@@ -32,15 +32,21 @@ app.directive('modal', function(){
       contentUrl: '=',
       showCondition: '=',
     },
-    controller: function ($scope){
-      $scope.disableModal = function (){
-        $scope.showCondition = false;
+    template: "<div> <div class='my-modal-backdrop' ng-click='disableModal()'></div>  <div ng-include='contentUrl'> </div> </div>",
+    link: function(scope, ele, attr){
+      scope.disableModal = function (){
+        scope.showCondition = false;
       }
-      $scope.$watch('contentUrl', function(n){
-        console.log('content', n);
+      scope.$watch('showCondition', function(newValue, oldValue){
+        if (newValue) {
+          //show contents
+          ele.css({"visibility": "visible"});
+        } else {
+          //hide contents
+          ele.css({"visibility": "hidden"});
+        }
       });
-    },
-    template: "<div ng-show='showCondition'> <div class='my-modal-backdrop' ng-show='showCondition' ng-click='disableModal()'></div>  <div ng-include='contentUrl'> </div> </div>",
+    }
   }
 });
 
