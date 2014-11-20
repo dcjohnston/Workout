@@ -12,11 +12,19 @@ app.controller('MainCtrl', function(){
     this.displayNavbar = !this.displayNavbar;
   }
   this.displayModal = false;
-  this.toggleModal = function(){
+  this.templateUrl = '';
+  this.toggleModal = function(name){
+    if (name === 'login'){
+      this.templateUrl = '/frontend/partials/login.html';
+    } else if (name === 'signup') {
+      this.templateUrl = '/frontend/partials/signup.html';
+    }
     this.displayModal = !this.displayModal;
   }
 });
 
+
+// IS THIS SECURE ?!?!?!?
 app.directive('modal', function(){
   return {
     restrict: 'E',
@@ -24,13 +32,15 @@ app.directive('modal', function(){
       contentUrl: '=',
       showCondition: '=',
     },
-    replace: true,
     controller: function ($scope){
       $scope.disableModal = function (){
         $scope.showCondition = false;
       }
+      $scope.$watch('contentUrl', function(n){
+        console.log('content', n);
+      });
     },
-    template: "<div class='my-modal-backdrop' ng-show='showCondition' ng-click='disableModal()'> <div ng-include='url'> </div> </div>",
+    template: "<div ng-show='showCondition'> <div class='my-modal-backdrop' ng-show='showCondition' ng-click='disableModal()'></div>  <div ng-include='contentUrl'> </div> </div>",
   }
 });
 
