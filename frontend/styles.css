@@ -22,17 +22,20 @@ modal {
   cursor: pointer;
   opacity: 0;
   transition: opacity .6s ease; }
-  .my-modal-backdrop.show-modal {
+  .my-modal-backdrop.show-modal-backdrop {
     opacity: .7; }
   .my-modal-backdrop .container {
     height: 100%; }
 
-.my-modal-login {
-  opacity: 1;
+.my-modal-dialog {
   background-color: white;
-  z-index: 1001;
   position: absolute;
-  height: 50%; }
+  height: 50%;
+  z-index: 1001;
+  transform: translate3d(0, -100%, 0);
+  transition: transform .6s ease; }
+  .my-modal-dialog.show-modal-dialog {
+    transform: translate3d(0, 0, 0); }
 
 .topbar {
   height: auto;

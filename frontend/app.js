@@ -1,31 +1,28 @@
 var app = angular.module('app', ['ngAnimate']);
 
-app.run(function($window){
-  angular.element($window).on('load', function(){
-    angular.element('body').removeClass("preload");
-  });
-});
-
-app.controller('MainCtrl', function(){
+app.controller('MainCtrl', ['$timeout', function($timeout){
   this.displayNavbar = false;
   this.toggleNavbar = function(){
     this.displayNavbar = !this.displayNavbar;
   }
   this.displayModal = false;
-  this.templateUrl = '';
+  this.templateUrl = ''; // default
   this.toggleModal = function(name){
     if (name === 'login'){
       this.templateUrl = '/frontend/partials/login.html';
     } else if (name === 'signup') {
       this.templateUrl = '/frontend/partials/signup.html';
     }
-    this.displayModal = !this.displayModal;
+    var self = this;
+    $timeout(function(){
+      self.displayModal = !self.displayModal;
+    }, 0);
   }
-});
+}]);
 
 
 // IS THIS SECURE ?!?!?!?
-app.directive('modal', function(){
+app.directive('modal', function($http, $templateCache){
   return {
     restrict: 'E',
     scope: {
@@ -33,20 +30,31 @@ app.directive('modal', function(){
       showCondition: '=',
       fadeDuration: '=',
     },
-    template: "<div> <div class='my-modal-backdrop' ng-click='disableModal()'></div>  <div ng-include='contentUrl'> </div> </div>",
+    templateURL: "/frontend/partials/modaltemplate.html",
     link: function(scope, ele, attr){
+      var templateUrls = scope.$eval(attr.templates);
+      angular.forEach(templateUrls, function(value, key){
+        $http.get(value, {cache: $templateCache})
+        .success(function(){
+          console.log('did it');
+        });
+      });
       scope.disableModal = function (){
         scope.showCondition = false;
       }
+      scope.$watch('contentUrl', function(newValue, oldValue){
+      });
       scope.$watch('showCondition', function(newValue, oldValue){
         if (newValue) {
           //show contents
           ele.css({"visibility": "visible"});
-          angular.element(".my-modal-backdrop").addClass('show-modal');
+          angular.element(".my-modal-backdrop").addClass('show-modal-backdrop');
+          angular.element(".my-modal-dialog").addClass('show-modal-dialog');
         } else {
           //hide contents
-          angular.element(".my-modal-backdrop").removeClass('show-modal');
-          if (oldValue) ele.css({"visibility": "hidden"});
+          ele.css({"visibility": "hidden"});
+          angular.element(".my-modal-backdrop").removeClass('show-modal-backdrop');
+          angular.element(".my-modal-dialog").removeClass('show-modal-dialog');
         }
       });
     }
