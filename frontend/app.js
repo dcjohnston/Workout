@@ -31,6 +31,7 @@ app.directive('modal', function(){
     scope: {
       contentUrl: '=',
       showCondition: '=',
+      fadeDuration: '=',
     },
     template: "<div> <div class='my-modal-backdrop' ng-click='disableModal()'></div>  <div ng-include='contentUrl'> </div> </div>",
     link: function(scope, ele, attr){
@@ -41,9 +42,11 @@ app.directive('modal', function(){
         if (newValue) {
           //show contents
           ele.css({"visibility": "visible"});
+          angular.element(".my-modal-backdrop").addClass('show-modal');
         } else {
           //hide contents
-          ele.css({"visibility": "hidden"});
+          angular.element(".my-modal-backdrop").removeClass('show-modal');
+          if (oldValue) ele.css({"visibility": "hidden"});
         }
       });
     }

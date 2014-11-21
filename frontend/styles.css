@@ -9,6 +9,10 @@ body, html {
 body {
   overflow-x: hidden; }
 
+modal {
+  visibility: hidden;
+  transition: visibility .6s linear; }
+
 .my-modal-backdrop {
   position: absolute;
   width: 100%;
@@ -16,7 +20,10 @@ body {
   background-color: black;
   z-index: 1000;
   cursor: pointer;
-  opacity: .7; }
+  opacity: 0;
+  transition: opacity .6s ease; }
+  .my-modal-backdrop.show-modal {
+    opacity: .7; }
   .my-modal-backdrop.ng-hide-add, .my-modal-backdrop.ng-hide-remove {
     display: block !important; }
   .my-modal-backdrop.ng-hide-add {
