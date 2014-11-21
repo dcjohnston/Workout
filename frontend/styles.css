@@ -24,15 +24,6 @@ modal {
   transition: opacity .6s ease; }
   .my-modal-backdrop.show-modal {
     opacity: .7; }
-  .my-modal-backdrop.ng-hide-add, .my-modal-backdrop.ng-hide-remove {
-    display: block !important; }
-  .my-modal-backdrop.ng-hide-add {
-    -webkit-animation: fade-over .6s 1 forwards;
-    -webkit-animation-direction: reverse; }
-  .my-modal-backdrop.ng-hide-remove {
-    -webkit-animation: fade-over .6s 1 forwards; }
-  .my-modal-backdrop div:first-child {
-    height: 100%; }
   .my-modal-backdrop .container {
     height: 100%; }
 
