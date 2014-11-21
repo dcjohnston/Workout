@@ -66,13 +66,15 @@
       </div>
       <div class="topbar">
         <div class="container-fluid">
-          <div class="col-sm-1 col-sm-offset-1 col-xs-1 col-xs-offset-0">
-            <span class="glyphicon glyphicon-align-justify" ng-click="main.toggleNavbar()"></span>
-          </div>
-          <div class="col-lg-offset-6 col-lg-4 col-sm-6 col-sm-offset-4 col-xs-12">
-            <span class="user-controls"> 
-              <button ng-click="main.toggleModal('login')">Login </button> | <button> Signup </button> | <button> About </button>
-            </span>
+          <div class="row">
+            <div class="col-lg-offset-6 col-lg-4 col-sm-push-2 col-sm-6 col-sm-offset-4 col-xs-12">
+              <span class="user-controls"> 
+                <button ng-click="main.toggleModal('login')">Login </button> | <button> Signup </button> | <button> About </button>
+              </span>
+            </div>
+            <div class="col-sm-1 col-sm-offset-1 col-sm-pull-10 col-xs-12">
+              <span class="glyphicon glyphicon-align-justify" ng-click="main.toggleNavbar()"></span>
+            </div>
           </div>
         </div>
       </div>
