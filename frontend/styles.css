@@ -11,7 +11,16 @@ body {
 
 modal {
   visibility: hidden;
-  transition: visibility .6s linear; }
+  transition: visibility .6s linear;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%; }
+  modal > div:first-child {
+    height: 100%;
+    width: 100%;
+    position: relative; }
 
 .my-modal-backdrop {
   position: absolute;
@@ -24,18 +33,20 @@ modal {
   transition: opacity .6s ease; }
   .my-modal-backdrop.show-modal-backdrop {
     opacity: .7; }
-  .my-modal-backdrop .container {
-    height: 100%; }
 
 .my-modal-dialog {
-  background-color: white;
+  background-color: #bebebe;
   position: absolute;
+  top: 0;
+  left: 0;
   height: 50%;
+  margin: 0 20%;
+  width: 60%;
   z-index: 1001;
   transform: translate3d(0, -100%, 0);
-  transition: transform .6s ease; }
+  transition: transform .4s ease; }
   .my-modal-dialog.show-modal-dialog {
-    transform: translate3d(0, 0, 0); }
+    transform: translate3d(0, 30%, 0); }
 
 .topbar {
   height: auto;
