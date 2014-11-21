@@ -6,17 +6,10 @@ app.controller('MainCtrl', ['$timeout', function($timeout){
     this.displayNavbar = !this.displayNavbar;
   }
   this.displayModal = false;
-  this.templateUrl = ''; // default
+  this.templateKey = '';
   this.toggleModal = function(name){
-    if (name === 'login'){
-      this.templateUrl = '/frontend/partials/login.html';
-    } else if (name === 'signup') {
-      this.templateUrl = '/frontend/partials/signup.html';
-    }
-    var self = this;
-    $timeout(function(){
-      self.displayModal = !self.displayModal;
-    }, 0);
+    this.templateKey = name;
+    this.displayModal = !this.displayModal;
   }
 }]);
 
@@ -30,19 +23,21 @@ app.directive('modal', function($http, $templateCache){
       showCondition: '=',
       fadeDuration: '=',
     },
-    templateURL: "/frontend/partials/modaltemplate.html",
+    templateUrl: "/frontend/partials/modaltemplate.html",
     link: function(scope, ele, attr){
+      var templateMap = {};
       var templateUrls = scope.$eval(attr.templates);
       angular.forEach(templateUrls, function(value, key){
-        $http.get(value, {cache: $templateCache})
-        .success(function(){
-          console.log('did it');
+        $http.get(value)
+        .success(function(response){
+          templateMap[key] = angular.element(response);
         });
       });
       scope.disableModal = function (){
         scope.showCondition = false;
       }
       scope.$watch('contentUrl', function(newValue, oldValue){
+        angular.element('.my-modal-dialog').html(templateMap[newValue]);
       });
       scope.$watch('showCondition', function(newValue, oldValue){
         if (newValue) {
